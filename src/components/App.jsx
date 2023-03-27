@@ -11,10 +11,10 @@ const App = () => {
 
   return (
     <div className={classes.root}>
+    <CssBaseline />
     <NavBar/>
       <main className={classes.content}> 
       <div className={classes.toolbar}/>
-        <CssBaseline />
         <Routes>
           <Route exact path = "/" element={<Movies/>}/>
           <Route exact path = "/movie/:id" element={<MovieInformation/>}/>
