@@ -4,6 +4,18 @@ export default makeStyles((theme)=>({
     movie:{
         padding:'10px'
     },
+    link:{
+        alignItems: 'center',
+        fontWeight: 'bolder',
+        textDecoration: 'none',
+        [theme.breakpoints.up('xs')]: {
+            display: 'flex',
+            flexDirection: 'column'
+        },
+        '&:hover':{
+            cursor: 'pointer',
+        }
+    },
     title:{
         color: theme.palette.text.primary,
         textOverflow: 'ellipsis', // To truncate the text data
@@ -13,5 +25,13 @@ export default makeStyles((theme)=>({
         marginBottom : 0,
         textAlign: 'center',
         whiteSpace: 'nowrap'
-    }
+    },
+    image:{
+        borderRadius: '20px',
+        height: '300px',
+        marginBottom: '10px',
+        '&:hover':{
+            transform: 'scale(1.05)'
+        }
+    },
 }));
