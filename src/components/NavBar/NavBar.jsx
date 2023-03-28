@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppBar, Drawer, Button, IconButton, Toolbar, Avatar, useMediaQuery } from '@mui/material';
 import { Menu, AccountCircle, Brightness4, Brightness7 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-import useStyles from './styles';
 import { useTheme } from '@mui/material/styles';
 import Sidebar from '../Sidebar/Sidebar';
 import Search from '../Search/Search';
+import { fetchToken, createSessionId, moviesApi } from '../../utils/index';
+import useStyles from './styles';
 
 
 function NavBar() {
@@ -14,7 +15,23 @@ function NavBar() {
   const classes = useStyles();
   const isMobile = useMediaQuery('(max-width: 600px)'); // To check if deivce is mobile
   const theme = useTheme();
-  const isAuthenticated = true;
+  const isAuthenticated = false;
+
+  const token = localStorage.getItem('request_token');
+  const sessionIdLocalStorage = localStorage.getItem('session_id');
+
+  useEffect(() =>{
+    const loginUser =async ()=>{
+      if(token){
+        if(sessionIdLocalStorage){
+          const {data: userData} = await moviesApi.get(`/account?session_id=${sessionIdLocalStorage}`)
+        }else{
+          const sessionId = await createSessionId()
+          const {data: userData} = await moviesApi.get(`/account?session_id=${sessionId}`)
+        }
+      }
+    }
+  }, [token]);
 
   return (
     <>
@@ -39,7 +56,7 @@ function NavBar() {
           {!isMobile && <Search />}
           <div>
             {!isAuthenticated ? (
-              <Button color="inherit" onClick={() => { }}>
+              <Button color="inherit" onClick={ fetchToken }>
                 Login &nbsp; <AccountCircle />
               </Button>
             ) : (
