@@ -21,11 +21,11 @@ const blueLogo =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjsOr1vzsYwCx2KkpBZHhRT10mXzCiMgeAdmQMkuF0sw&usqp=CAU&ec=48665698";
 
 const Sidebar = ({ setmobileOpen }) => {
+  const { genreIdOrCategoryName } = useSelector((state)=> state.currentGenreOrCategory); // To select the slice from store
   const theme = useTheme();
   const classes = useStyles();
   const { data, isFetching } = useGetGenreQuery();
   const dispatch = useDispatch();
-
 
   return (
     <>
