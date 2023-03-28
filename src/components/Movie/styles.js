@@ -19,7 +19,7 @@ export default makeStyles((theme)=>({
     title:{
         color: theme.palette.text.primary,
         textOverflow: 'ellipsis', // To truncate the text data
-        width: '180px',
+        width: '160px',
         overflow: 'hidden',
         marginTop: '10px',
         marginBottom : 0,
@@ -28,7 +28,7 @@ export default makeStyles((theme)=>({
     },
     image:{
         borderRadius: '20px',
-        height: '270px',
+        height: '255px',
         marginBottom: '10px',
         '&:hover':{
             transform: 'scale(1.05)'

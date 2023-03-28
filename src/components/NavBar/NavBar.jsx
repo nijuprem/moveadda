@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import useStyles from './styles';
 import { useTheme } from '@mui/material/styles';
 import Sidebar from '../Sidebar/Sidebar';
+import Search from '../Search/Search';
+
 
 function NavBar() {
 
@@ -34,7 +36,7 @@ function NavBar() {
           <IconButton color="inherit" sx={{ ml: 1 }} onClick={() => { }}>
             {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
           </IconButton>
-          {!isMobile && 'Search'}
+          {!isMobile && <Search />}
           <div>
             {!isAuthenticated ? (
               <Button color="inherit" onClick={() => { }}>
@@ -54,7 +56,7 @@ function NavBar() {
               </Button>
             )}
           </div>
-          {isMobile && 'Search'}
+          {isMobile && <Search />}
         </Toolbar>
       </AppBar>
       <div>
@@ -87,4 +89,4 @@ function NavBar() {
   )
 }
 
-export default NavBar
+export default NavBar;

@@ -19,10 +19,11 @@ const Movie = ({ movie, i }) => {
           } */}
 
           <img alt={movie.title} className={classes.image}
-            src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : 'https://www.fillmurray.com/200/300'}
+            src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` 
+            : 'https://picsum.photos/200/300'}
           />
 
-          <Typography className={classes.title} variant="h5">{movie.title}</Typography>
+          <Typography className={classes.title} variant="h6">{movie.title}</Typography>
           <Tooltip disableTouchListener title={`${movie.vote_average} / 10 `}>
             <div>
           <Rating readOnly value={movie.vote_average / 2} precision={0.1}></Rating>
