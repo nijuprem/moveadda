@@ -3,6 +3,8 @@ import { AppBar, Drawer, Button, IconButton, Toolbar, Avatar, useMediaQuery } fr
 import { Menu, AccountCircle, Brightness4, Brightness7 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
+import { useDispatch, useSelector } from 'react-redux';
+import {setUser, userSelector} from '../../features/auth'
 import Sidebar from '../Sidebar/Sidebar';
 import Search from '../Search/Search';
 import { fetchToken, createSessionId, moviesApi } from '../../utils/index';
@@ -10,12 +12,13 @@ import useStyles from './styles';
 
 
 function NavBar() {
-
+  const { isAuthenticated, user } = useSelector(userSelector);
   const [mobileOpen, setmobileOpen] = useState(false);
   const classes = useStyles();
   const isMobile = useMediaQuery('(max-width: 600px)'); // To check if deivce is mobile
   const theme = useTheme();
-  const isAuthenticated = false;
+  const dispatch = useDispatch();
+  console.log(user)
 
   const token = localStorage.getItem('request_token');
   const sessionIdLocalStorage = localStorage.getItem('session_id');
@@ -25,12 +28,15 @@ function NavBar() {
       if(token){
         if(sessionIdLocalStorage){
           const {data: userData} = await moviesApi.get(`/account?session_id=${sessionIdLocalStorage}`)
+          dispatch(setUser(userData));
         }else{
           const sessionId = await createSessionId()
           const {data: userData} = await moviesApi.get(`/account?session_id=${sessionId}`)
+          dispatch(setUser(userData));
         }
       }
     }
+    loginUser();
   }, [token]);
 
   return (
