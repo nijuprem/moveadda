@@ -52,7 +52,7 @@ const Actors = () => {
           </Typography>
           <Box marginTop='2rem' display='flex' justifyContent="space-around">
             <Button variant='contained' color='primary' target='_blank' href={`https://www.imdb.com/name/${data?.imdb_id}`}>IMDB</Button>
-            <Button startIcon=<ArrowBack/> onClick={()=> navigate(-1)} color="primary">IMDB</Button>
+            <Button startIcon=<ArrowBack/> onClick={()=> navigate(-1)} color="primary">Back</Button>
           </Box>
         </Grid>
       </Grid>

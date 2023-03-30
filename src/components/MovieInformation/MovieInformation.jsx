@@ -48,7 +48,7 @@ const addToWatchlist = ()=>{
 
   return (
     <Grid container className={classes.containerSpaceAround}>
-      <Grid item sm={12} lg={4}>
+      <Grid item sm={12} lg={4} align="center">
         <img className={classes.poster}
           src={`https://image.tmdb.org/t/p/w500/${data?.poster_path}`}
           alt={data?.title}
@@ -63,7 +63,7 @@ const addToWatchlist = ()=>{
             <Rating readOnly value={data.vote_average / 2} precision={0.1}></Rating>
             <Typography variant="subtitle1" style={{ marginLeft: '10px' }} gutterBottom> {(data?.vote_average).toPrecision(2)} /10</Typography>
           </Box>
-          <Typography variant="h6" align="center" gutterBottom> {data?.runtime} mins {data?.spoken_languages.length > 0 ? `/ ${data?.spoken_languages[0].name}` : ''}</Typography>
+          <Typography variant="h6" align="center" gutterBottom> {data?.runtime} mins / Language: {data?.spoken_languages[0].name}</Typography>
         </Grid>
         
         <Grid item className={classes.genresContainer}>
