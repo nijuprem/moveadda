@@ -18,7 +18,7 @@ function NavBar() {
   const isMobile = useMediaQuery('(max-width: 600px)'); // To check if deivce is mobile
   const theme = useTheme();
   const dispatch = useDispatch();
-  console.log(user)
+  // console.log(user)
 
   const token = localStorage.getItem('request_token');
   const sessionIdLocalStorage = localStorage.getItem('session_id');
