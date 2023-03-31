@@ -8,7 +8,7 @@ export default makeStyles((theme)=>({
         display: "flex",
         justifyContent: "space-between",
         marginLeft: "240px",
-        backgroundColor: '#870000',
+        backgroundColor: 'primary',
         [theme.breakpoints.down('sm')]:{
             marginLeft: 0,
             flexWrap: 'wrap'

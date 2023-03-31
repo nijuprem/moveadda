@@ -1,3 +1,3 @@
 # MovieAdda - NP (Under Development)
 
-Link - https://movieaddanp.netlify.app/
+Link - https://movieadda-np.netlify.app/
