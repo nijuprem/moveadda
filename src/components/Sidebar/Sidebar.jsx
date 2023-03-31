@@ -15,10 +15,10 @@ const categories = [
 ];
 
 
-const redLogo =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjsOr1vzsYwCx2KkpBZHhRT10mXzCiMgeAdmQMkuF0sw&usqp=CAU&ec=48665698";
 const blueLogo =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjsOr1vzsYwCx2KkpBZHhRT10mXzCiMgeAdmQMkuF0sw&usqp=CAU&ec=48665698";
+  "https://lh3.googleusercontent.com/drive-viewer/AAOQEOQKC4vpkTbIxMjYsM_N4NHOrQLdonPqgPejTckBL3azWhjonizHY2tyC2VdgxsJmvBPetAm-5APrqrPTfrb1Bo-IFkI=w1920-h932";
+const redLogo =
+  "https://lh3.googleusercontent.com/drive-viewer/AAOQEOSt8Y_65Bwf__P0RA9uzvaFPV9u_PnoYk50s7Ksu3fvbFKe1D_IU28htxxs8IrYQUtvgfHsF_y7vEvJwu-vJ4aWPUQvMQ=w1920-h932";
 
 const Sidebar = ({ setmobileOpen }) => {
   const { genreIdOrCategoryName } = useSelector((state)=> state.currentGenreOrCategory); // To select the slice from store
@@ -32,7 +32,7 @@ const Sidebar = ({ setmobileOpen }) => {
       <Link to="/" className={classes.imageLink}>
         <img
           className={classes.image}
-          src={theme.palette.mode === 'light' ? redLogo : blueLogo}
+          src={theme.palette.mode === 'dark' ? redLogo : blueLogo}
           alt="MovieAdda Logo"
         >
 
