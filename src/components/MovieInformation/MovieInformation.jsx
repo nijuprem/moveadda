@@ -22,13 +22,14 @@ const MovieInformation = () => {
   const { data, isFetching, error } = useGetMovieQuery(id);
   const { data: favoriteMovies } = useGetListQuery({
               listName: 'favorite',
-              accountId: user.id, 
+              accountId: user?.id, 
               sessionId: localStorage.getItem('session_id'),
               page: 1
             });
+            console.log(user)
   const { data: watchlistMovies } = useGetListQuery({ 
             listName: 'watchlist', 
-            accountId: user.id, 
+            accountId: user?.id, 
             sessionId: localStorage.getItem('session_id'), 
             page: 1 });
 
