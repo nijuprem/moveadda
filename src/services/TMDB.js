@@ -12,6 +12,11 @@ export const tmdbApi = createApi({
             query: () =>`genre/movie/list?api_key=${tmdbApiKey}`
         }),
 
+        // Get List of favourites
+        getList:builder.query({
+            query: ({listName, accountId, sessionId, page})=> `/account/${accountId}/${listName}/movies?api_key=${tmdbApiKey}&session_id=${sessionId}&page=${page}`
+        }),
+
         // Get Movies by type
         getMovies: builder.query({
             query: ({genreIdOrCategoryName, page, searchQuery})=> {
@@ -37,7 +42,7 @@ export const tmdbApi = createApi({
         }),
         // Get Movie for main movie page
         getMovie: builder.query({
-            query: (id)=> `/movie/${id}?append_to_response=videos,credits&api_key=${tmdbApiKey}` 
+            query: (id)=> `movie/${id}?append_to_response=videos,credits&api_key=${tmdbApiKey}` 
         }),
 
         // Get user specific list/ recommendations
@@ -60,6 +65,7 @@ export const {
     useGetMoviesQuery,
     useGetGenreQuery,
     useGetMovieQuery,
+    useGetListQuery,
     useGetRecommendationsQuery,
     useGetActorDetailsQuery,
     useGetMoviesByActorIdQuery,
