@@ -16,9 +16,9 @@ const categories = [
 
 
 const blueLogo =
-  "https://lh3.googleusercontent.com/drive-viewer/AAOQEOQKC4vpkTbIxMjYsM_N4NHOrQLdonPqgPejTckBL3azWhjonizHY2tyC2VdgxsJmvBPetAm-5APrqrPTfrb1Bo-IFkI=w1920-h932";
+  "https://i.ibb.co/8BjQmDN/logo2.png";
 const redLogo =
-  "https://lh3.googleusercontent.com/drive-viewer/AAOQEOSt8Y_65Bwf__P0RA9uzvaFPV9u_PnoYk50s7Ksu3fvbFKe1D_IU28htxxs8IrYQUtvgfHsF_y7vEvJwu-vJ4aWPUQvMQ=w1920-h932";
+  "https://i.ibb.co/4P35W2Y/logo1.png";
 
 const Sidebar = ({ setmobileOpen }) => {
   const { genreIdOrCategoryName } = useSelector((state)=> state.currentGenreOrCategory); // To select the slice from store
